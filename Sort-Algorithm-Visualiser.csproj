@@ -55,6 +55,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="algorithms\insertionsort.cs" />
     <Compile Include="algorithms\sortalgorithm.cs" />
     <Compile Include="algorithms\bubblesort.cs" />
     <Compile Include="gui.cs">
