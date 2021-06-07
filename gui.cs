@@ -6,7 +6,7 @@ namespace Sort_Algorithm_Visualiser
     {
         public gui()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void gui_Load(object sender, System.EventArgs e)

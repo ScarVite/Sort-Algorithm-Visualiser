@@ -40,11 +40,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
                 }
             }
             watch.Stop();
-            foreach(int i in toSort)
-            {
-                Console.WriteLine(i);
-            }
-            //watch.ElapsedMilliseconds;
+            Console.WriteLine(watch.Elapsed.TotalMilliseconds);
             return 1;
         }
     }
