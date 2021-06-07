@@ -22,7 +22,6 @@ namespace Sort_Algorithm_Visualiser.algorithms
         {
             watch.Start();
             int totalSorts = 0;
-            //int sortedIndex = 1;
             for (int i = 1; i <= toSort.Length - 1; i++)
             {
                 if (toSort[i-1] > toSort[i])
@@ -42,13 +41,9 @@ namespace Sort_Algorithm_Visualiser.algorithms
                     }
                     totalSorts++;
                 }
-                //sortedIndex++;
             }
             watch.Stop();
-            foreach (int i in toSort)
-            {
-                Console.WriteLine(i);
-            }
+            Console.WriteLine(watch.Elapsed.TotalMilliseconds);
             return 1;
         }
     }
