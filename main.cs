@@ -25,8 +25,8 @@ namespace Sort_Algorithm_Visualiser
         {
             SortHelper helper = new SortHelper();
             int[] arrToSort = helper.ArrayHelper(5);
-            bubblesort bubble = new bubblesort(arrToSort);
-            bubble.sort();
+            quicksort sort = new quicksort(arrToSort, 1);
+            sort.startSort();
         }
     }
 }
