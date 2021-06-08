@@ -18,9 +18,8 @@ namespace Sort_Algorithm_Visualiser.algorithms
             toSort = arr;
         }
 
-        public override int sort()
+        protected override int sort()
         {
-            watch.Start();
             while(!sorted)
             {
                 int sorts = 0;

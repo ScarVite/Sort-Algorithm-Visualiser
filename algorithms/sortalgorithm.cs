@@ -17,13 +17,15 @@ namespace Sort_Algorithm_Visualiser.algorithms
 
         public async void startSort()
         {
+            int result = 0;
             watch.Start();
-            await Task.Run(() => sort());
+            await Task.Run(() => result = sort());
+            if (result != 1) Console.WriteLine("CERNEL PAGE FAULT, CODE: {0}", result); 
+            watch.Stop();
             Console.WriteLine(watch.Elapsed.TotalMilliseconds);
             Console.WriteLine("[{0}]", string.Join(", ", toSort));
-            watch.Stop();
         }
 
-        public abstract int sort();
+        protected abstract int sort();
     }
 }

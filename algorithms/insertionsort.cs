@@ -18,7 +18,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
             toSort = arr;
         }
 
-        public override int sort()
+        protected override int sort()
         {
             for (int i = 1; i <= toSort.Length - 1; i++)
             {
