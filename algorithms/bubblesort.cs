@@ -27,9 +27,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
                 {
                     if(toSort[i] > toSort[i+1])
                     {
-                        int temp = toSort[i];
-                        toSort[i] = toSort[i + 1];
-                        toSort[i + 1] = temp;
+                        swap(i, i + 1);
                         sorts++;
                     }
                 }

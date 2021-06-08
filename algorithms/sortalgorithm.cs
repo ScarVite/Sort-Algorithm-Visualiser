@@ -26,6 +26,14 @@ namespace Sort_Algorithm_Visualiser.algorithms
             Console.WriteLine("[{0}]", string.Join(", ", toSort));
         }
 
+        protected void swap(int i, int j)
+        {
+            totalSorts++;
+            int temp = toSort[i];
+            toSort[i] = toSort[j];
+            toSort[j] = temp;
+        }
+
         protected abstract int sort();
     }
 }

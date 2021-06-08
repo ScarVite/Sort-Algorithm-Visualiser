@@ -58,13 +58,6 @@ namespace Sort_Algorithm_Visualiser.algorithms
             return swapIndex;
         }
 
-        private void swap(int i, int j)
-        {
-            int temp = toSort[i];
-            toSort[i] = toSort[j];
-            toSort[j] = temp;
-        }
-
         private void getPivot()
         {
             switch(ActivationMethod)
