@@ -8,15 +8,16 @@ namespace Sort_Algorithm_Visualiser.utils
 {
     class SortHelper
     {
-        Random rand = new Random();
+         static Random rand = new Random();
 
         public int[] ArrayHelper(int length)
         {
             int[] toSort = new int[length];
             for (int i = 0; i < length; i++)
             {
-                toSort[i] = rand.Next(100);
+                toSort[i] = rand.Next(0, 100);
             }
+            Console.WriteLine("[{0}]", string.Join(", ", toSort));
             return toSort;
         }
     }
