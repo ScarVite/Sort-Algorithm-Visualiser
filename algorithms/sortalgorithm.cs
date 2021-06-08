@@ -13,6 +13,16 @@ namespace Sort_Algorithm_Visualiser.algorithms
         protected Stopwatch watch = new Stopwatch();
         protected int[] toSort;
         protected bool sorted = false;
+        protected int totalSorts = 0;
+
+        public async void startSort()
+        {
+            watch.Start();
+            await Task.Run(() => sort());
+            Console.WriteLine(watch.Elapsed.TotalMilliseconds);
+            Console.WriteLine("[{0}]", string.Join(", ", toSort));
+            watch.Stop();
+        }
 
         public abstract int sort();
     }

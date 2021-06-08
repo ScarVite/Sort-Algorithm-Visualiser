@@ -21,7 +21,6 @@ namespace Sort_Algorithm_Visualiser.algorithms
         public override int sort()
         {
             watch.Start();
-            int totalSorts = 0;
             while(!sorted)
             {
                 int sorts = 0;
@@ -33,14 +32,11 @@ namespace Sort_Algorithm_Visualiser.algorithms
                         toSort[i] = toSort[i + 1];
                         toSort[i + 1] = temp;
                         sorts++;
-                        Console.WriteLine("sorting");
                     }
-                    if (sorts == 0) sorted = true;
-                    totalSorts += sorts;
                 }
+                totalSorts += sorts;
+                if (sorts == 0) sorted = true;
             }
-            watch.Stop();
-            Console.WriteLine(watch.Elapsed.TotalMilliseconds);
             return 1;
         }
     }
