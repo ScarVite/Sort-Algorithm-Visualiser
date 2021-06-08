@@ -20,30 +20,27 @@ namespace Sort_Algorithm_Visualiser.algorithms
 
         public override int sort()
         {
-            watch.Start();
-            int totalSorts = 0;
             for (int i = 1; i <= toSort.Length - 1; i++)
             {
                 if (toSort[i-1] > toSort[i])
                 {
                     int temp = toSort[i];
-                    for (int b = i - 1;b > 0; b--)
+                    for (int b = i-1;b >= 0; b--)
                     {
                         if (toSort[b] > temp)
                         {
                             toSort[b + 1] = toSort[b];
+                            if (b == 0) toSort[b] = temp;
                         }
                         else
                         {
-                            toSort[b] = temp;
+                            toSort[b+1] = temp;
                             b = -1;
                         }
                     }
                     totalSorts++;
                 }
             }
-            watch.Stop();
-            Console.WriteLine(watch.Elapsed.TotalMilliseconds);
             return 1;
         }
     }
