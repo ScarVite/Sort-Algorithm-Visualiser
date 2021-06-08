@@ -22,8 +22,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
             await Task.Run(() => result = sort());
             if (result != 1) Console.WriteLine("CERNEL PAGE FAULT, CODE: {0}", result); 
             watch.Stop();
-            Console.WriteLine(watch.Elapsed.TotalMilliseconds);
-            Console.WriteLine("[{0}]", string.Join(", ", toSort));
+            Console.WriteLine("Array: [{0}]; TotalSorts: {1}; Time: {2}", string.Join(", ", toSort), totalSorts, watch.Elapsed.TotalMilliseconds);
         }
 
         protected void swap(int i, int j)
