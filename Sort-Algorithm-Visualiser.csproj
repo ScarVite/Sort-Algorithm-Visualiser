@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="algorithms\bogosort.cs" />
+    <Compile Include="algorithms\heapsort.cs" />
     <Compile Include="algorithms\insertionsort.cs" />
     <Compile Include="algorithms\quicksort.cs" />
     <Compile Include="algorithms\sortalgorithm.cs" />
