@@ -11,6 +11,10 @@ namespace Sort_Algorithm_Visualiser.algorithms
 
         private Random rand = new Random();
 
+        /// <summary>
+        /// The Constructor for the Bogosort Algorithm
+        /// </summary>
+        /// <param name="arr">The Array to sort</param>
         public bogosort(int[] arr)
         {
             if (arr.Length < 5)
@@ -24,15 +28,18 @@ namespace Sort_Algorithm_Visualiser.algorithms
         {
             do
             {
-                isSorted();
                 for (int i = 0; i < toSort.Length - 1; i++)
                 {
-                    swap(i, rand.Next(0, toSort.Length));
+                    swap(i, rand.Next(0, toSort.Length)); //Randomy Shuffle everthing
                 }
-            } while (!sorted);
+                isSorted(); //refresh sorted
+            } while (!sorted); //while not sorted
             return 1;
         }
 
+        /// <summary>
+        /// Checks if the Array is Sorted an Updates sorted
+        /// </summary>
         private void isSorted()
         {
             sorted = true;

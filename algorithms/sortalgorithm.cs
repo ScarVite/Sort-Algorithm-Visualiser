@@ -15,6 +15,9 @@ namespace Sort_Algorithm_Visualiser.algorithms
         protected bool sorted = false;
         protected int totalSorts = 0;
 
+        /// <summary>
+        /// Starts The Sort Algorithm.
+        /// </summary>
         public async void startSort()
         {
             int result = 0;
@@ -25,6 +28,11 @@ namespace Sort_Algorithm_Visualiser.algorithms
             Console.WriteLine("Array: [{0}]; TotalSorts: {1}; Time: {2}", string.Join(", ", toSort), totalSorts, watch.Elapsed.TotalMilliseconds);
         }
 
+        /// <summary>
+        /// Swaps two given index keys
+        /// </summary>
+        /// <param name="i">The First Index</param>
+        /// <param name="j">The Second Index</param>
         protected void swap(int i, int j)
         {
             totalSorts++;
@@ -33,6 +41,10 @@ namespace Sort_Algorithm_Visualiser.algorithms
             toSort[j] = temp;
         }
 
+        /// <summary>
+        /// Includes the main Sortlogic
+        /// </summary>
+        /// <returns>Completion Code</returns>
         protected abstract int sort();
     }
 }

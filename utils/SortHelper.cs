@@ -10,14 +10,19 @@ namespace Sort_Algorithm_Visualiser.utils
     {
          static Random rand = new Random();
 
-        public int[] ArrayHelper(int length)
+        /// <summary>
+        /// Generate the Array Containing Random ints
+        /// </summary>
+        /// <param name="length">The length of the array</param>
+        /// <returns>Array containing random numbers</returns>
+        public int[] getArray(int length)
         {
             int[] toSort = new int[length];
             for (int i = 0; i < length; i++)
             {
                 toSort[i] = rand.Next(0, 100);
             }
-            Console.WriteLine("[{0}]", string.Join(", ", toSort));
+            Console.WriteLine("Unsorted: [{0}]", string.Join(", ", toSort));
             return toSort;
         }
     }

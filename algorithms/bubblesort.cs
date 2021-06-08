@@ -9,6 +9,10 @@ namespace Sort_Algorithm_Visualiser.algorithms
     class bubblesort: sortalgorithm
     {
 
+        /// <summary>
+        /// The Constructor for the Bubblesort Algorithm
+        /// </summary>
+        /// <param name="arr">The Array to sort</param>
         public bubblesort(int[] arr)
         {
             if(arr.Length < 5)
@@ -20,19 +24,18 @@ namespace Sort_Algorithm_Visualiser.algorithms
 
         protected override int sort()
         {
-            while(!sorted)
+            while(!sorted) //Check if Array is Sorted
             {
-                int sorts = 0;
+                int sorts = 0; // Count the Sorts
                 for(int i = 0; i < toSort.Length-1; i++)
                 {
-                    if(toSort[i] > toSort[i+1])
+                    if(toSort[i] > toSort[i+1]) 
                     {
-                        swap(i, i + 1);
+                        swap(i, i + 1); //We always carry the largest key over
                         sorts++;
                     }
                 }
-                totalSorts += sorts;
-                if (sorts == 0) sorted = true;
+                if (sorts == 0) sorted = true; // When we completed without sorting we are done. //Seperate check after running is also run
             }
             return 1;
         }

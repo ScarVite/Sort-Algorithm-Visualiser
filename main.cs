@@ -21,11 +21,14 @@ namespace Sort_Algorithm_Visualiser
             Application.Run(new gui());
         }
 
+        /// <summary>
+        /// Initialises the Sortalgorithms
+        /// </summary>
         public static void init()
         {
             SortHelper helper = new SortHelper();
-            int[] arrToSort = helper.ArrayHelper(5);
-            quicksort sort = new quicksort(arrToSort, 1);
+            int[] arrToSort = helper.getArray(5);
+            heapsort sort = new heapsort(arrToSort);
             sort.startSort();
         }
     }
