@@ -28,7 +28,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         {
             do
             {
-                for (int i = 0; i < toSort.Length - 1; i++)
+                for (int i = 0; i < toSort.Length; i++)
                 {
                     swap(i, rand.Next(0, toSort.Length)); //Randomy Shuffle everthing
                 }
