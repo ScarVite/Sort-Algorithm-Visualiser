@@ -28,7 +28,7 @@ namespace Sort_Algorithm_Visualiser
         {
             SortHelper helper = new SortHelper();
             int[] arrToSort = helper.getArray(5);
-            Heapsort sort = new Heapsort(arrToSort);
+            Radixsort sort = new Radixsort(arrToSort);
             sort.startSort();
         }
     }
