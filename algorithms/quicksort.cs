@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sort_Algorithm_Visualiser.algorithms
 {
-    class quicksort : sortalgorithm
+    class Quicksort : Sortalgorithm
     {
         int ActivationMethod = -1;
 
@@ -17,7 +17,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// </summary>
         /// <param name="arr">The Array to sort</param>
         /// <param name="Actv">Activation Method: 1=First; 2=Last; 3=Random</param>
-        public quicksort(int[] arr,int Actv)
+        public Quicksort(int[] arr,int Actv)
         {
             if (arr.Length < 5)
             {

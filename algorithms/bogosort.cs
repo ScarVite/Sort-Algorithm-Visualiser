@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sort_Algorithm_Visualiser.algorithms
 {
-    class bogosort: sortalgorithm
+    class Bogosort: Sortalgorithm
     {
 
         private Random rand = new Random();
@@ -15,7 +15,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// The Constructor for the Bogosort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        public bogosort(int[] arr)
+        public Bogosort(int[] arr)
         {
             if (arr.Length < 5)
             {

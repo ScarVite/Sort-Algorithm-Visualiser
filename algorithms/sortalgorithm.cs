@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sort_Algorithm_Visualiser.algorithms
 {
-    abstract class sortalgorithm
+    abstract class Sortalgorithm
     {
 
         protected Stopwatch watch = new Stopwatch();

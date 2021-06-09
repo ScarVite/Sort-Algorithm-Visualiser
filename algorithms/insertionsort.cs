@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Sort_Algorithm_Visualiser.algorithms
 {
-    class insertionsort : sortalgorithm
+    class Insertionsort : Sortalgorithm
     {
 
         /// <summary>
         /// The Constructor for the Insertionsort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        public insertionsort(int[] arr)
+        public Insertionsort(int[] arr)
         {
             if (arr.Length < 5)
             {

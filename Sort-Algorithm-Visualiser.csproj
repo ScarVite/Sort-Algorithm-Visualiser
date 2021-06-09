@@ -58,12 +58,13 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="algorithms\bogosort.cs" />
-    <Compile Include="algorithms\heapsort.cs" />
-    <Compile Include="algorithms\insertionsort.cs" />
-    <Compile Include="algorithms\quicksort.cs" />
-    <Compile Include="algorithms\sortalgorithm.cs" />
-    <Compile Include="algorithms\bubblesort.cs" />
+    <Compile Include="algorithms\Bogosort.cs" />
+    <Compile Include="algorithms\Heapsort.cs" />
+    <Compile Include="algorithms\Insertionsort.cs" />
+    <Compile Include="algorithms\Quicksort.cs" />
+    <Compile Include="algorithms\Radixsort.cs" />
+    <Compile Include="algorithms\Sortalgorithm.cs" />
+    <Compile Include="algorithms\Bubblesort.cs" />
     <Compile Include="gui.cs">
       <SubType>Form</SubType>
     </Compile>

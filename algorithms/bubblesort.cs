@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Sort_Algorithm_Visualiser.algorithms
 {
-    class bubblesort: sortalgorithm
+    class Bubblesort: Sortalgorithm
     {
 
         /// <summary>
         /// The Constructor for the Bubblesort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        public bubblesort(int[] arr)
+        public Bubblesort(int[] arr)
         {
             if(arr.Length < 5)
             {

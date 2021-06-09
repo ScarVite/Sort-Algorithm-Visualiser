@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Sort_Algorithm_Visualiser.algorithms
 {
-    class heapsort : sortalgorithm
+    class Heapsort : Sortalgorithm
     {
 
         /// <summary>
         /// The Constructor for the Heapsort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        public heapsort(int[] arr)
+        public Heapsort(int[] arr)
         {
             if (arr.Length < 5)
             {
