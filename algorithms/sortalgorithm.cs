@@ -18,7 +18,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// <summary>
         /// Starts The Sort Algorithm.
         /// </summary>
-        public async void startSort()
+        public async Task<int[]> startSort()
         {
             int result = 0;
             watch.Start();
@@ -26,6 +26,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
             if (result != 1) Console.WriteLine("CERNEL PAGE FAULT, CODE: {0}", result); 
             watch.Stop();
             Console.WriteLine("Array: [{0}]; TotalSorts: {1}; Time: {2}", string.Join(", ", toSort), totalSorts, watch.Elapsed.TotalMilliseconds);
+            return toSort;
         }
 
         /// <summary>
