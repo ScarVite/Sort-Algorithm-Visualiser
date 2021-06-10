@@ -17,7 +17,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// </summary>
         /// <param name="arr">The Array to sort</param>
         /// <param name="Actv">Activation Method: 1=First; 2=Last; 3=Random</param>
-        public Quicksort(int[] arr,int Actv)
+        public Quicksort(int[] arr, int Actv)
         {
             if (arr.Length < 5)
             {
@@ -40,7 +40,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// <returns></returns>
         private int qsort(int start, int end)
         {
-            if(start < end)
+            if (start < end)
             {
                 int pivot = partition(start, end); //get the pivot
                 qsort(start, pivot); // do the same for the frist part (smaller or equal to pivot)
@@ -59,9 +59,9 @@ namespace Sort_Algorithm_Visualiser.algorithms
         {
             int pivot = toSort[start]; //Depending on Activiation Method
             int swapIndex = start;
-            for(int i = start+1; i < end; i++)
+            for (int i = start + 1; i < end; i++)
             {
-                if(toSort[i] < pivot) //Sort the Index Accrodingly
+                if (toSort[i] < pivot) //Sort the Index Accrodingly
                 {
                     swapIndex++;
                     swap(i, swapIndex);
@@ -77,7 +77,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// <returns>PivotIndex</returns>
         private int getPivot()
         {
-            switch(ActivationMethod)
+            switch (ActivationMethod)
             {
                 case 1:
                     return 0;
