@@ -56,6 +56,11 @@ namespace Sort_Algorithm_Visualiser.algorithms
             return 1;
         }
 
+        /// <summary>
+        /// Swaps the given Indexes keys in both array
+        /// </summary>
+        /// <param name="i">first index</param>
+        /// <param name="j">second index</param>
         private void swapSplit(int i, int j)
         {
             swap(i, j);
@@ -65,6 +70,10 @@ namespace Sort_Algorithm_Visualiser.algorithms
             split[j] = temp;
         }
 
+        /// <summary>
+        /// Calculates Max Length of the arrays keys
+        /// </summary>
+        /// <returns>Max Length of the arrays keys</returns>
         private int getMax()
         {
             int max = 0;
@@ -76,6 +85,10 @@ namespace Sort_Algorithm_Visualiser.algorithms
             return max;
         }
 
+        /// <summary>
+        /// Splits the int at the given index and inserts it into the array
+        /// </summary>
+        /// <param name="index">index</param>
         private void splitArray(int index)
         {
             //Select Simmilar to .map (js)

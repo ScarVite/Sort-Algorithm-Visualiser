@@ -20,7 +20,7 @@ namespace Sort_Algorithm_Visualiser.utils
             int[] toSort = new int[length];
             for (int i = 0; i < length; i++)
             {
-                toSort[i] = rand.Next(0, 100);
+                toSort[i] = rand.Next(0, 1050);
             }
             Console.WriteLine("Unsorted: [{0}]", string.Join(", ", toSort));
             return toSort;
