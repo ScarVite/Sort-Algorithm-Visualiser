@@ -9,6 +9,10 @@ namespace Sort_Algorithm_Visualiser.algorithms
     class Selectionsort : Sortalgorithm
     {
 
+        /// <summary>
+        /// The Constructor for the Selectionsort Algorithm
+        /// </summary>
+        /// <param name="arr">The Array to sort</param>
         public Selectionsort(int[] arr)
         {
             if (arr.Length < 5)
