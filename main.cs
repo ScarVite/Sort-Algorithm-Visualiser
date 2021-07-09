@@ -26,8 +26,8 @@ namespace Sort_Algorithm_Visualiser
         /// </summary>
         public static void init()
         {
-            SortHelper helper = new SortHelper();
-            int[] arrToSort = helper.getArray(5);
+            //SortHelper helper = new SortHelper();
+            //int[] arrToSort = helper.getArray(5);
             //Radixsort sort = new Radixsort(arrToSort);
             //sort.startSort();
             test();
@@ -38,8 +38,8 @@ namespace Sort_Algorithm_Visualiser
             SortHelper helper = new SortHelper();
             for (int i = 5; i > 0 ; i--)
             {
-                int[] arrToSort = helper.getArray(5);
-                Radixsort sort = new Radixsort(arrToSort);
+                int[] arrToSort = helper.getArray(10);
+                Shellsort sort = new Shellsort(arrToSort);
                 int[] sorted = await sort.startSort();
                 bool sortedB = true;
                 for(int a = 1; a < sorted.Length;a++)

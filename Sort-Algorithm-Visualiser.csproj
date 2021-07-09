@@ -64,6 +64,7 @@
     <Compile Include="algorithms\Quicksort.cs" />
     <Compile Include="algorithms\Radixsort.cs" />
     <Compile Include="algorithms\Selectionsort.cs" />
+    <Compile Include="algorithms\Shellsort.cs" />
     <Compile Include="algorithms\Sortalgorithm.cs" />
     <Compile Include="algorithms\Bubblesort.cs" />
     <Compile Include="gui.cs">
