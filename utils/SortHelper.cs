@@ -14,13 +14,15 @@ namespace Sort_Algorithm_Visualiser.utils
         /// Generate the Array Containing Random ints
         /// </summary>
         /// <param name="length">The length of the array</param>
+        /// <param name="min_value">The Minimal Value for a Value</param>
+        /// <param name="max_value">The Maximum Value for a Value</param>
         /// <returns>Array containing random numbers</returns>
-        public int[] getArray(int length)
+        public int[] getArray(int length, int min_value, int max_value)
         {
             int[] toSort = new int[length];
             for (int i = 0; i < length; i++)
             {
-                toSort[i] = rand.Next(0, 1050);
+                toSort[i] = rand.Next(min_value, max_value);
             }
             //Console.WriteLine("Unsorted: [{0}]", string.Join(", ", toSort));
             return toSort;
