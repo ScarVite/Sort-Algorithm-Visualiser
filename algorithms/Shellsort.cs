@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Sort_Algorithm_Visualiser.algorithms
@@ -12,7 +13,8 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// The Constructor for the Shellsort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        public Shellsort(int[] arr)
+        /// <param name="gui">The Instance of the GUI</param>
+        public Shellsort(int[] arr, gui gui) : base(gui)
         {
             if (arr.Length < 5)
             {
@@ -29,6 +31,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
                 {
                     try
                     {
+                        if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
                         if (toSort[i] > toSort[i + gap + 1]) swap(i, i + gap + 1); // Compare The Current Element to The Element which has the Distance of the Gap
                     }
                     catch (IndexOutOfRangeException e)
@@ -62,7 +65,10 @@ namespace Sort_Algorithm_Visualiser.algorithms
                             b = -1; // end the loop
                         }
                     }
+                    if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
                     totalSorts++;
+                    mainGui.update(toSort, totalSorts);
+                    Thread.Sleep(1000);
                 }
             }
             return 1;

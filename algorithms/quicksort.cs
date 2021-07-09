@@ -17,7 +17,8 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// </summary>
         /// <param name="arr">The Array to sort</param>
         /// <param name="Actv">Activation Method: 1=First; 2=Last; 3=Random</param>
-        public Quicksort(int[] arr, int Actv)
+        /// <param name="gui">The Instance of the GUI</param>
+        public Quicksort(int[] arr, int Actv, gui gui) : base(gui)
         {
             if (arr.Length < 5)
             {
@@ -29,6 +30,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
 
         protected override int sort()
         {
+            if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
             return qsort(getPivot(), toSort.Length);
         }
 
@@ -42,6 +44,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         {
             if (start < end)
             {
+                if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
                 int pivot = partition(start, end); //get the pivot
                 qsort(start, pivot); // do the same for the frist part (smaller or equal to pivot)
                 qsort(pivot + 1, end); //and now for the second part (the largen than pivot)
@@ -63,6 +66,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
             {
                 if (toSort[i] < pivot) //Sort the Index Accrodingly
                 {
+                    if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
                     swapIndex++;
                     swap(i, swapIndex);
                 }

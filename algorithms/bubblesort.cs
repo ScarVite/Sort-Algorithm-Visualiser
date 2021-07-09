@@ -13,7 +13,8 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// The Constructor for the Bubblesort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        public Bubblesort(int[] arr)
+        /// <param name="gui">The Instance of the GUI</param>
+        public Bubblesort(int[] arr, gui gui) : base(gui)
         {
             if(arr.Length < 5)
             {
@@ -31,6 +32,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
                 {
                     if(toSort[i] > toSort[i+1]) 
                     {
+                        if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
                         swap(i, i + 1); //We always carry the largest key over
                         sorts++;
                     }

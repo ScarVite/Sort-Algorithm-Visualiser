@@ -13,7 +13,8 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// The Constructor for the Selectionsort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        public Selectionsort(int[] arr)
+        /// <param name="gui">The Instance of the GUI</param>
+        public Selectionsort(int[] arr, gui gui) : base(gui)
         {
             if (arr.Length < 5)
             {
@@ -31,7 +32,8 @@ namespace Sort_Algorithm_Visualiser.algorithms
                 {
                     if (toSort[minInd] > toSort[a]) minInd = a; // Set The new Index if it's smaller
                 }
-                if(minInd != i) swap(minInd, i); // Swap if it's not the first index
+                if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
+                if (minInd != i) swap(minInd, i); // Swap if it's not the first index
             }
             return 1;
         }

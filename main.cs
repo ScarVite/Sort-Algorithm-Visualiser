@@ -10,6 +10,9 @@ namespace Sort_Algorithm_Visualiser
 {
     static class main
     {
+
+        private static gui mainGui;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -18,7 +21,7 @@ namespace Sort_Algorithm_Visualiser
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new gui());
+            Application.Run(mainGui = new gui());
         }
 
         /// <summary>
@@ -30,7 +33,7 @@ namespace Sort_Algorithm_Visualiser
             //int[] arrToSort = helper.getArray(5);
             //Radixsort sort = new Radixsort(arrToSort);
             //sort.startSort();
-            test();
+            //test();
         }
 
         private async static void test()
@@ -39,7 +42,7 @@ namespace Sort_Algorithm_Visualiser
             for (int i = 5; i > 0 ; i--)
             {
                 int[] arrToSort = helper.getArray(10);
-                Shellsort sort = new Shellsort(arrToSort);
+                Shellsort sort = new Shellsort(arrToSort, mainGui);
                 int[] sorted = await sort.startSort();
                 bool sortedB = true;
                 for(int a = 1; a < sorted.Length;a++)
