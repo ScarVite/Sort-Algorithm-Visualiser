@@ -39,6 +39,7 @@
             // 
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.DataSource = this.chart1.Titles;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(23, 12);
@@ -47,7 +48,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(633, 300);
+            this.chart1.Size = new System.Drawing.Size(917, 480);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
