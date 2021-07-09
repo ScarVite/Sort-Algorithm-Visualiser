@@ -15,7 +15,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// </summary>
         /// <param name="arr">The Array to sort</param>
         /// <param name="gui">The Instance of the GUI</param>
-        public Insertionsort(int[] arr, gui gui) : base(gui)
+        public Insertionsort(int[] arr, int del, gui gui) : base(del, gui)
         {
             if (arr.Length < 5)
             {
@@ -47,7 +47,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
                     if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
                     totalSorts++;
                     mainGui.update(toSort, totalSorts);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(delay);
                 }
             }
             return 1;

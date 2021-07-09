@@ -18,7 +18,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// <param name="arr">The Array to sort</param>
         /// <param name="Actv">Activation Method: 1=First; 2=Last; 3=Random</param>
         /// <param name="gui">The Instance of the GUI</param>
-        public Quicksort(int[] arr, int Actv, gui gui) : base(gui)
+        public Quicksort(int[] arr, int Actv, int del, gui gui) : base(del, gui)
         {
             if (arr.Length < 5)
             {
@@ -83,11 +83,11 @@ namespace Sort_Algorithm_Visualiser.algorithms
         {
             switch (ActivationMethod)
             {
-                case 1:
+                case 0:
                     return 0;
-                case 2:
+                case 1:
                     return toSort.Length - 1;
-                case 3:
+                case 2:
                     return rand.Next(0, toSort.Length - 1);
                 default:
                     throw new Exception("No Activationmethod Defined");

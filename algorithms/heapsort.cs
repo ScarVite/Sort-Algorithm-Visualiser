@@ -14,7 +14,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// </summary>
         /// <param name="arr">The Array to sort</param>
         /// <param name="gui">The Instance of the GUI</param>
-        public Heapsort(int[] arr, gui gui) : base(gui)
+        public Heapsort(int[] arr, int del, gui gui) : base(del, gui)
         {
             if (arr.Length < 5)
             {
@@ -32,7 +32,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
             }
 
             //rebuild the max-heap for the non sorted keys
-            for (int i = toSort.Length-1; i> 0; i--)
+            for (int i = toSort.Length-1; i > 0; i--)
             {
                 if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
                 swap(0, i);

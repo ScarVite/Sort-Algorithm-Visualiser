@@ -17,10 +17,12 @@ namespace Sort_Algorithm_Visualiser.algorithms
         protected bool sorted = false;
         protected int totalSorts = 0;
         protected gui mainGui;
+        protected int delay = 0;
         private int result = 0;
 
-        protected Sortalgorithm(gui gui)
+        protected Sortalgorithm(int del, gui gui)
         {
+            delay = del;
             mainGui = gui;
         }
 
@@ -78,7 +80,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
             toSort[i] = toSort[j];
             toSort[j] = temp;
             mainGui.update(toSort, totalSorts);
-            Thread.Sleep(1000);
+            Thread.Sleep(delay);
         }
 
         /// <summary>

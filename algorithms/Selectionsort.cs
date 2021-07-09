@@ -14,7 +14,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// </summary>
         /// <param name="arr">The Array to sort</param>
         /// <param name="gui">The Instance of the GUI</param>
-        public Selectionsort(int[] arr, gui gui) : base(gui)
+        public Selectionsort(int[] arr, int del, gui gui) : base(del, gui)
         {
             if (arr.Length < 5)
             {
