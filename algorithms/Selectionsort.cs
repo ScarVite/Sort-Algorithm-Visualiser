@@ -26,12 +26,12 @@ namespace Sort_Algorithm_Visualiser.algorithms
         {
             for(int i = 0; i < toSort.Length; i++)
             {
-                int minInd = i;
+                int minInd = i; // Set the index for the smallest Value
                 for (int a = i; a < toSort.Length; a++)
                 {
-                    if (toSort[minInd] > toSort[a]) minInd = a;
+                    if (toSort[minInd] > toSort[a]) minInd = a; // Set The new Index if it's smaller
                 }
-                if(minInd != i) swap(minInd, i);
+                if(minInd != i) swap(minInd, i); // Swap if it's not the first index
             }
             return 1;
         }
