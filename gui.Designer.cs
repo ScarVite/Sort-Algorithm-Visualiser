@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.AlgorithmBox = new System.Windows.Forms.GroupBox();
             this.ShellBtn = new System.Windows.Forms.RadioButton();
@@ -41,6 +41,9 @@
             this.HeapBtn = new System.Windows.Forms.RadioButton();
             this.BubbleBtn = new System.Windows.Forms.RadioButton();
             this.BogoBtn = new System.Windows.Forms.RadioButton();
+            this.ActvRandBtn = new System.Windows.Forms.RadioButton();
+            this.ActvLastBtn = new System.Windows.Forms.RadioButton();
+            this.ActvFirstBtn = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SettingsBox = new System.Windows.Forms.GroupBox();
             this.ArrayLengthInt = new System.Windows.Forms.Label();
@@ -52,26 +55,39 @@
             this.ResetBtn = new System.Windows.Forms.Button();
             this.SortLabel = new System.Windows.Forms.Label();
             this.SortCounterLabel = new System.Windows.Forms.Label();
+            this.QuickActvBox = new System.Windows.Forms.GroupBox();
+            this.DelayLengthInt = new System.Windows.Forms.Label();
+            this.MaxValInt = new System.Windows.Forms.Label();
+            this.MaxValueLabel = new System.Windows.Forms.Label();
+            this.MaxValSlider = new System.Windows.Forms.TrackBar();
+            this.TimeElapsedInt = new System.Windows.Forms.Label();
+            this.TimeElapsedLabel = new System.Windows.Forms.Label();
+            this.ComparisonInt = new System.Windows.Forms.Label();
+            this.ComparisonLabel = new System.Windows.Forms.Label();
+            this.SortedBool = new System.Windows.Forms.Label();
+            this.SortedLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.AlgorithmBox.SuspendLayout();
             this.SettingsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DelaySlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArraySlider)).BeginInit();
+            this.QuickActvBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxValSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.DataSource = this.chart1.Titles;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(12, 40);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(917, 480);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -88,7 +104,7 @@
             this.AlgorithmBox.Controls.Add(this.BogoBtn);
             this.AlgorithmBox.Location = new System.Drawing.Point(948, 240);
             this.AlgorithmBox.Name = "AlgorithmBox";
-            this.AlgorithmBox.Size = new System.Drawing.Size(204, 212);
+            this.AlgorithmBox.Size = new System.Drawing.Size(102, 212);
             this.AlgorithmBox.TabIndex = 1;
             this.AlgorithmBox.TabStop = false;
             this.AlgorithmBox.Text = "Algorithms";
@@ -102,6 +118,7 @@
             this.ShellBtn.TabIndex = 7;
             this.ShellBtn.Text = "Shellsort";
             this.ShellBtn.UseVisualStyleBackColor = true;
+            this.ShellBtn.CheckedChanged += new System.EventHandler(this.RadioBtn_CheckedChanged);
             // 
             // SelectionBtn
             // 
@@ -112,6 +129,7 @@
             this.SelectionBtn.TabIndex = 6;
             this.SelectionBtn.Text = "Selectionsort";
             this.SelectionBtn.UseVisualStyleBackColor = true;
+            this.SelectionBtn.CheckedChanged += new System.EventHandler(this.RadioBtn_CheckedChanged);
             // 
             // RadixBtn
             // 
@@ -122,6 +140,7 @@
             this.RadixBtn.TabIndex = 5;
             this.RadixBtn.Text = "Radixsort";
             this.RadixBtn.UseVisualStyleBackColor = true;
+            this.RadixBtn.CheckedChanged += new System.EventHandler(this.RadioBtn_CheckedChanged);
             // 
             // QuickBtn
             // 
@@ -132,6 +151,7 @@
             this.QuickBtn.TabIndex = 4;
             this.QuickBtn.Text = "Quicksort";
             this.QuickBtn.UseVisualStyleBackColor = true;
+            this.QuickBtn.CheckedChanged += new System.EventHandler(this.RadioBtn_CheckedChanged);
             // 
             // InsertionBtn
             // 
@@ -142,6 +162,7 @@
             this.InsertionBtn.TabIndex = 3;
             this.InsertionBtn.Text = "Insertionsort";
             this.InsertionBtn.UseVisualStyleBackColor = true;
+            this.InsertionBtn.CheckedChanged += new System.EventHandler(this.RadioBtn_CheckedChanged);
             // 
             // HeapBtn
             // 
@@ -152,6 +173,7 @@
             this.HeapBtn.TabIndex = 2;
             this.HeapBtn.Text = "Heapsort";
             this.HeapBtn.UseVisualStyleBackColor = true;
+            this.HeapBtn.CheckedChanged += new System.EventHandler(this.RadioBtn_CheckedChanged);
             // 
             // BubbleBtn
             // 
@@ -162,6 +184,7 @@
             this.BubbleBtn.TabIndex = 1;
             this.BubbleBtn.Text = "Bubblesort";
             this.BubbleBtn.UseVisualStyleBackColor = true;
+            this.BubbleBtn.CheckedChanged += new System.EventHandler(this.RadioBtn_CheckedChanged);
             // 
             // BogoBtn
             // 
@@ -174,9 +197,49 @@
             this.BogoBtn.TabStop = true;
             this.BogoBtn.Text = "Bogosort";
             this.BogoBtn.UseVisualStyleBackColor = true;
+            this.BogoBtn.CheckedChanged += new System.EventHandler(this.RadioBtn_CheckedChanged);
+            // 
+            // ActvRandBtn
+            // 
+            this.ActvRandBtn.AutoSize = true;
+            this.ActvRandBtn.Location = new System.Drawing.Point(6, 65);
+            this.ActvRandBtn.Name = "ActvRandBtn";
+            this.ActvRandBtn.Size = new System.Drawing.Size(94, 17);
+            this.ActvRandBtn.TabIndex = 10;
+            this.ActvRandBtn.Text = "Random Index";
+            this.ActvRandBtn.UseVisualStyleBackColor = true;
+            this.ActvRandBtn.CheckedChanged += new System.EventHandler(this.QuickAtv_CheckedChanged);
+            // 
+            // ActvLastBtn
+            // 
+            this.ActvLastBtn.AutoSize = true;
+            this.ActvLastBtn.Location = new System.Drawing.Point(6, 42);
+            this.ActvLastBtn.Name = "ActvLastBtn";
+            this.ActvLastBtn.Size = new System.Drawing.Size(74, 17);
+            this.ActvLastBtn.TabIndex = 9;
+            this.ActvLastBtn.Text = "Last Index";
+            this.ActvLastBtn.UseVisualStyleBackColor = true;
+            this.ActvLastBtn.CheckedChanged += new System.EventHandler(this.QuickAtv_CheckedChanged);
+            // 
+            // ActvFirstBtn
+            // 
+            this.ActvFirstBtn.AutoSize = true;
+            this.ActvFirstBtn.Checked = true;
+            this.ActvFirstBtn.Location = new System.Drawing.Point(6, 19);
+            this.ActvFirstBtn.Name = "ActvFirstBtn";
+            this.ActvFirstBtn.Size = new System.Drawing.Size(73, 17);
+            this.ActvFirstBtn.TabIndex = 8;
+            this.ActvFirstBtn.TabStop = true;
+            this.ActvFirstBtn.Text = "First Index";
+            this.ActvFirstBtn.UseVisualStyleBackColor = true;
+            this.ActvFirstBtn.CheckedChanged += new System.EventHandler(this.QuickAtv_CheckedChanged);
             // 
             // SettingsBox
             // 
+            this.SettingsBox.Controls.Add(this.MaxValInt);
+            this.SettingsBox.Controls.Add(this.MaxValueLabel);
+            this.SettingsBox.Controls.Add(this.MaxValSlider);
+            this.SettingsBox.Controls.Add(this.DelayLengthInt);
             this.SettingsBox.Controls.Add(this.ArrayLengthInt);
             this.SettingsBox.Controls.Add(this.DelayLabel);
             this.SettingsBox.Controls.Add(this.DelaySlider);
@@ -211,12 +274,13 @@
             this.DelaySlider.LargeChange = 100;
             this.DelaySlider.Location = new System.Drawing.Point(7, 82);
             this.DelaySlider.Maximum = 1000;
-            this.DelaySlider.Minimum = 20;
+            this.DelaySlider.Minimum = 10;
             this.DelaySlider.Name = "DelaySlider";
-            this.DelaySlider.Size = new System.Drawing.Size(197, 45);
+            this.DelaySlider.Size = new System.Drawing.Size(161, 45);
             this.DelaySlider.SmallChange = 10;
             this.DelaySlider.TabIndex = 2;
-            this.DelaySlider.Value = 20;
+            this.DelaySlider.Value = 500;
+            this.DelaySlider.Scroll += new System.EventHandler(this.DelaySlider_Scroll);
             // 
             // ArrayLengthLabel
             // 
@@ -242,7 +306,7 @@
             // 
             // StartBtn
             // 
-            this.StartBtn.Location = new System.Drawing.Point(948, 469);
+            this.StartBtn.Location = new System.Drawing.Point(948, 486);
             this.StartBtn.Name = "StartBtn";
             this.StartBtn.Size = new System.Drawing.Size(89, 23);
             this.StartBtn.TabIndex = 3;
@@ -252,7 +316,7 @@
             // 
             // ResetBtn
             // 
-            this.ResetBtn.Location = new System.Drawing.Point(1067, 469);
+            this.ResetBtn.Location = new System.Drawing.Point(1067, 486);
             this.ResetBtn.Name = "ResetBtn";
             this.ResetBtn.Size = new System.Drawing.Size(85, 23);
             this.ResetBtn.TabIndex = 4;
@@ -278,11 +342,123 @@
             this.SortCounterLabel.TabIndex = 6;
             this.SortCounterLabel.Text = "0";
             // 
+            // QuickActvBox
+            // 
+            this.QuickActvBox.Controls.Add(this.ActvRandBtn);
+            this.QuickActvBox.Controls.Add(this.ActvFirstBtn);
+            this.QuickActvBox.Controls.Add(this.ActvLastBtn);
+            this.QuickActvBox.Location = new System.Drawing.Point(1061, 241);
+            this.QuickActvBox.Name = "QuickActvBox";
+            this.QuickActvBox.Size = new System.Drawing.Size(128, 88);
+            this.QuickActvBox.TabIndex = 7;
+            this.QuickActvBox.TabStop = false;
+            this.QuickActvBox.Text = "QS Activation Method";
+            this.QuickActvBox.Visible = false;
+            // 
+            // DelayLengthInt
+            // 
+            this.DelayLengthInt.Location = new System.Drawing.Point(164, 91);
+            this.DelayLengthInt.Name = "DelayLengthInt";
+            this.DelayLengthInt.Size = new System.Drawing.Size(67, 13);
+            this.DelayLengthInt.TabIndex = 5;
+            this.DelayLengthInt.Text = "500";
+            // 
+            // MaxValInt
+            // 
+            this.MaxValInt.Location = new System.Drawing.Point(167, 142);
+            this.MaxValInt.Name = "MaxValInt";
+            this.MaxValInt.Size = new System.Drawing.Size(67, 13);
+            this.MaxValInt.TabIndex = 8;
+            this.MaxValInt.Text = "500";
+            // 
+            // MaxValueLabel
+            // 
+            this.MaxValueLabel.AutoSize = true;
+            this.MaxValueLabel.Location = new System.Drawing.Point(10, 117);
+            this.MaxValueLabel.Name = "MaxValueLabel";
+            this.MaxValueLabel.Size = new System.Drawing.Size(54, 13);
+            this.MaxValueLabel.TabIndex = 7;
+            this.MaxValueLabel.Text = "MaxValue";
+            // 
+            // MaxValSlider
+            // 
+            this.MaxValSlider.LargeChange = 1000;
+            this.MaxValSlider.Location = new System.Drawing.Point(10, 133);
+            this.MaxValSlider.Maximum = 10000;
+            this.MaxValSlider.Minimum = 10;
+            this.MaxValSlider.Name = "MaxValSlider";
+            this.MaxValSlider.Size = new System.Drawing.Size(161, 45);
+            this.MaxValSlider.SmallChange = 100;
+            this.MaxValSlider.TabIndex = 6;
+            this.MaxValSlider.Value = 500;
+            this.MaxValSlider.Scroll += new System.EventHandler(this.MaxValSlider_Scroll);
+            // 
+            // TimeElapsedInt
+            // 
+            this.TimeElapsedInt.AutoSize = true;
+            this.TimeElapsedInt.Location = new System.Drawing.Point(188, 9);
+            this.TimeElapsedInt.Name = "TimeElapsedInt";
+            this.TimeElapsedInt.Size = new System.Drawing.Size(13, 13);
+            this.TimeElapsedInt.TabIndex = 9;
+            this.TimeElapsedInt.Text = "0";
+            // 
+            // TimeElapsedLabel
+            // 
+            this.TimeElapsedLabel.AutoSize = true;
+            this.TimeElapsedLabel.Location = new System.Drawing.Point(108, 9);
+            this.TimeElapsedLabel.Name = "TimeElapsedLabel";
+            this.TimeElapsedLabel.Size = new System.Drawing.Size(74, 13);
+            this.TimeElapsedLabel.TabIndex = 8;
+            this.TimeElapsedLabel.Text = "Time Elapsed:";
+            // 
+            // ComparisonInt
+            // 
+            this.ComparisonInt.AutoSize = true;
+            this.ComparisonInt.Location = new System.Drawing.Point(290, 9);
+            this.ComparisonInt.Name = "ComparisonInt";
+            this.ComparisonInt.Size = new System.Drawing.Size(13, 13);
+            this.ComparisonInt.TabIndex = 11;
+            this.ComparisonInt.Text = "0";
+            // 
+            // ComparisonLabel
+            // 
+            this.ComparisonLabel.AutoSize = true;
+            this.ComparisonLabel.Location = new System.Drawing.Point(223, 9);
+            this.ComparisonLabel.Name = "ComparisonLabel";
+            this.ComparisonLabel.Size = new System.Drawing.Size(70, 13);
+            this.ComparisonLabel.TabIndex = 10;
+            this.ComparisonLabel.Text = "Comparisons:";
+            // 
+            // SortedBool
+            // 
+            this.SortedBool.AutoSize = true;
+            this.SortedBool.Location = new System.Drawing.Point(884, 9);
+            this.SortedBool.Name = "SortedBool";
+            this.SortedBool.Size = new System.Drawing.Size(29, 13);
+            this.SortedBool.TabIndex = 13;
+            this.SortedBool.Text = "false";
+            // 
+            // SortedLabel
+            // 
+            this.SortedLabel.AutoSize = true;
+            this.SortedLabel.Location = new System.Drawing.Point(837, 9);
+            this.SortedLabel.Name = "SortedLabel";
+            this.SortedLabel.Size = new System.Drawing.Size(41, 13);
+            this.SortedLabel.TabIndex = 12;
+            this.SortedLabel.Text = "Sorted:";
+            // 
             // gui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 621);
+            this.ClientSize = new System.Drawing.Size(1207, 621);
+            this.Controls.Add(this.SortedBool);
+            this.Controls.Add(this.SortedLabel);
+            this.Controls.Add(this.ComparisonInt);
+            this.Controls.Add(this.ComparisonLabel);
+            this.Controls.Add(this.TimeElapsedInt);
+            this.Controls.Add(this.TimeElapsedLabel);
+            this.Controls.Add(this.QuickActvBox);
             this.Controls.Add(this.SortCounterLabel);
             this.Controls.Add(this.SortLabel);
             this.Controls.Add(this.ResetBtn);
@@ -300,6 +476,9 @@
             this.SettingsBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DelaySlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArraySlider)).EndInit();
+            this.QuickActvBox.ResumeLayout(false);
+            this.QuickActvBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxValSlider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,6 +507,20 @@
         private System.Windows.Forms.Label ArrayLengthInt;
         private System.Windows.Forms.Label SortLabel;
         private System.Windows.Forms.Label SortCounterLabel;
+        private System.Windows.Forms.RadioButton ActvFirstBtn;
+        private System.Windows.Forms.RadioButton ActvRandBtn;
+        private System.Windows.Forms.RadioButton ActvLastBtn;
+        private System.Windows.Forms.GroupBox QuickActvBox;
+        private System.Windows.Forms.Label DelayLengthInt;
+        private System.Windows.Forms.Label MaxValInt;
+        private System.Windows.Forms.Label MaxValueLabel;
+        private System.Windows.Forms.TrackBar MaxValSlider;
+        private System.Windows.Forms.Label TimeElapsedInt;
+        private System.Windows.Forms.Label TimeElapsedLabel;
+        private System.Windows.Forms.Label ComparisonInt;
+        private System.Windows.Forms.Label ComparisonLabel;
+        private System.Windows.Forms.Label SortedBool;
+        private System.Windows.Forms.Label SortedLabel;
     }
 }
 
