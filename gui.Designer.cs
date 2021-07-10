@@ -46,13 +46,14 @@
             this.ActvFirstBtn = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SettingsBox = new System.Windows.Forms.GroupBox();
+            this.SoundBox = new System.Windows.Forms.CheckBox();
             this.MaxValInt = new System.Windows.Forms.Label();
-            this.MaxValueLabel = new System.Windows.Forms.Label();
-            this.MaxValSlider = new System.Windows.Forms.TrackBar();
             this.DelayLengthInt = new System.Windows.Forms.Label();
             this.ArrayLengthInt = new System.Windows.Forms.Label();
+            this.MaxValueLabel = new System.Windows.Forms.Label();
             this.DelayLabel = new System.Windows.Forms.Label();
             this.DelaySlider = new System.Windows.Forms.TrackBar();
+            this.MaxValSlider = new System.Windows.Forms.TrackBar();
             this.ArrayLengthLabel = new System.Windows.Forms.Label();
             this.ArraySlider = new System.Windows.Forms.TrackBar();
             this.StartBtn = new System.Windows.Forms.Button();
@@ -66,12 +67,11 @@
             this.ComparisonLabel = new System.Windows.Forms.Label();
             this.SortedBool = new System.Windows.Forms.Label();
             this.SortedLabel = new System.Windows.Forms.Label();
-            this.SoundBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.AlgorithmBox.SuspendLayout();
             this.SettingsBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MaxValSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DelaySlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxValSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArraySlider)).BeginInit();
             this.QuickActvBox.SuspendLayout();
             this.SuspendLayout();
@@ -254,6 +254,19 @@
             this.SettingsBox.TabStop = false;
             this.SettingsBox.Text = "Settings";
             // 
+            // SoundBox
+            // 
+            this.SoundBox.AutoSize = true;
+            this.SoundBox.Checked = true;
+            this.SoundBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SoundBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SoundBox.Location = new System.Drawing.Point(13, 185);
+            this.SoundBox.Name = "SoundBox";
+            this.SoundBox.Size = new System.Drawing.Size(57, 17);
+            this.SoundBox.TabIndex = 9;
+            this.SoundBox.Text = "Sound";
+            this.SoundBox.UseVisualStyleBackColor = true;
+            // 
             // MaxValInt
             // 
             this.MaxValInt.Location = new System.Drawing.Point(169, 88);
@@ -261,6 +274,22 @@
             this.MaxValInt.Size = new System.Drawing.Size(67, 13);
             this.MaxValInt.TabIndex = 8;
             this.MaxValInt.Text = "500";
+            // 
+            // DelayLengthInt
+            // 
+            this.DelayLengthInt.Location = new System.Drawing.Point(171, 140);
+            this.DelayLengthInt.Name = "DelayLengthInt";
+            this.DelayLengthInt.Size = new System.Drawing.Size(67, 13);
+            this.DelayLengthInt.TabIndex = 5;
+            this.DelayLengthInt.Text = "10";
+            // 
+            // ArrayLengthInt
+            // 
+            this.ArrayLengthInt.Location = new System.Drawing.Point(164, 39);
+            this.ArrayLengthInt.Name = "ArrayLengthInt";
+            this.ArrayLengthInt.Size = new System.Drawing.Size(67, 13);
+            this.ArrayLengthInt.TabIndex = 4;
+            this.ArrayLengthInt.Text = "100";
             // 
             // MaxValueLabel
             // 
@@ -270,35 +299,6 @@
             this.MaxValueLabel.Size = new System.Drawing.Size(54, 13);
             this.MaxValueLabel.TabIndex = 7;
             this.MaxValueLabel.Text = "MaxValue";
-            // 
-            // MaxValSlider
-            // 
-            this.MaxValSlider.LargeChange = 1000;
-            this.MaxValSlider.Location = new System.Drawing.Point(7, 83);
-            this.MaxValSlider.Maximum = 10000;
-            this.MaxValSlider.Minimum = 10;
-            this.MaxValSlider.Name = "MaxValSlider";
-            this.MaxValSlider.Size = new System.Drawing.Size(161, 45);
-            this.MaxValSlider.SmallChange = 100;
-            this.MaxValSlider.TabIndex = 6;
-            this.MaxValSlider.Value = 500;
-            this.MaxValSlider.Scroll += new System.EventHandler(this.MaxValSlider_Scroll);
-            // 
-            // DelayLengthInt
-            // 
-            this.DelayLengthInt.Location = new System.Drawing.Point(171, 140);
-            this.DelayLengthInt.Name = "DelayLengthInt";
-            this.DelayLengthInt.Size = new System.Drawing.Size(67, 13);
-            this.DelayLengthInt.TabIndex = 5;
-            this.DelayLengthInt.Text = "500";
-            // 
-            // ArrayLengthInt
-            // 
-            this.ArrayLengthInt.Location = new System.Drawing.Point(164, 39);
-            this.ArrayLengthInt.Name = "ArrayLengthInt";
-            this.ArrayLengthInt.Size = new System.Drawing.Size(67, 13);
-            this.ArrayLengthInt.TabIndex = 4;
-            this.ArrayLengthInt.Text = "100";
             // 
             // DelayLabel
             // 
@@ -320,6 +320,19 @@
             this.DelaySlider.TabIndex = 2;
             this.DelaySlider.Value = 10;
             this.DelaySlider.Scroll += new System.EventHandler(this.DelaySlider_Scroll);
+            // 
+            // MaxValSlider
+            // 
+            this.MaxValSlider.LargeChange = 1000;
+            this.MaxValSlider.Location = new System.Drawing.Point(7, 83);
+            this.MaxValSlider.Maximum = 10000;
+            this.MaxValSlider.Minimum = 10;
+            this.MaxValSlider.Name = "MaxValSlider";
+            this.MaxValSlider.Size = new System.Drawing.Size(161, 45);
+            this.MaxValSlider.SmallChange = 100;
+            this.MaxValSlider.TabIndex = 6;
+            this.MaxValSlider.Value = 500;
+            this.MaxValSlider.Scroll += new System.EventHandler(this.MaxValSlider_Scroll);
             // 
             // ArrayLengthLabel
             // 
@@ -448,19 +461,6 @@
             this.SortedLabel.TabIndex = 12;
             this.SortedLabel.Text = "Sorted:";
             // 
-            // SoundBox
-            // 
-            this.SoundBox.AutoSize = true;
-            this.SoundBox.Checked = true;
-            this.SoundBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SoundBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SoundBox.Location = new System.Drawing.Point(13, 185);
-            this.SoundBox.Name = "SoundBox";
-            this.SoundBox.Size = new System.Drawing.Size(57, 17);
-            this.SoundBox.TabIndex = 9;
-            this.SoundBox.Text = "Sound";
-            this.SoundBox.UseVisualStyleBackColor = true;
-            // 
             // gui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,8 +488,8 @@
             this.AlgorithmBox.PerformLayout();
             this.SettingsBox.ResumeLayout(false);
             this.SettingsBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MaxValSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DelaySlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxValSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArraySlider)).EndInit();
             this.QuickActvBox.ResumeLayout(false);
             this.QuickActvBox.PerformLayout();
