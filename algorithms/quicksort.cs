@@ -18,7 +18,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// <param name="arr">The Array to sort</param>
         /// <param name="Actv">Activation Method: 1=First; 2=Last; 3=Random</param>
         /// <param name="gui">The Instance of the GUI</param>
-        public Quicksort(int[] arr, int Actv, int del, gui gui) : base(del, gui)
+        public Quicksort(int[] arr, int Actv, int del, bool sound, gui gui) : base(del, sound, gui)
         {
             if (arr.Length < 5)
             {

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.AlgorithmBox = new System.Windows.Forms.GroupBox();
             this.ShellBtn = new System.Windows.Forms.RadioButton();
@@ -66,6 +66,7 @@
             this.ComparisonLabel = new System.Windows.Forms.Label();
             this.SortedBool = new System.Windows.Forms.Label();
             this.SortedLabel = new System.Windows.Forms.Label();
+            this.SoundBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.AlgorithmBox.SuspendLayout();
             this.SettingsBox.SuspendLayout();
@@ -77,17 +78,17 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.DataSource = this.chart1.Titles;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(12, 40);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(917, 480);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -236,13 +237,14 @@
             // 
             // SettingsBox
             // 
+            this.SettingsBox.Controls.Add(this.SoundBox);
             this.SettingsBox.Controls.Add(this.MaxValInt);
-            this.SettingsBox.Controls.Add(this.MaxValueLabel);
-            this.SettingsBox.Controls.Add(this.MaxValSlider);
             this.SettingsBox.Controls.Add(this.DelayLengthInt);
             this.SettingsBox.Controls.Add(this.ArrayLengthInt);
+            this.SettingsBox.Controls.Add(this.MaxValueLabel);
             this.SettingsBox.Controls.Add(this.DelayLabel);
             this.SettingsBox.Controls.Add(this.DelaySlider);
+            this.SettingsBox.Controls.Add(this.MaxValSlider);
             this.SettingsBox.Controls.Add(this.ArrayLengthLabel);
             this.SettingsBox.Controls.Add(this.ArraySlider);
             this.SettingsBox.Location = new System.Drawing.Point(948, 22);
@@ -254,7 +256,7 @@
             // 
             // MaxValInt
             // 
-            this.MaxValInt.Location = new System.Drawing.Point(167, 142);
+            this.MaxValInt.Location = new System.Drawing.Point(169, 88);
             this.MaxValInt.Name = "MaxValInt";
             this.MaxValInt.Size = new System.Drawing.Size(67, 13);
             this.MaxValInt.TabIndex = 8;
@@ -263,7 +265,7 @@
             // MaxValueLabel
             // 
             this.MaxValueLabel.AutoSize = true;
-            this.MaxValueLabel.Location = new System.Drawing.Point(10, 117);
+            this.MaxValueLabel.Location = new System.Drawing.Point(13, 67);
             this.MaxValueLabel.Name = "MaxValueLabel";
             this.MaxValueLabel.Size = new System.Drawing.Size(54, 13);
             this.MaxValueLabel.TabIndex = 7;
@@ -272,7 +274,7 @@
             // MaxValSlider
             // 
             this.MaxValSlider.LargeChange = 1000;
-            this.MaxValSlider.Location = new System.Drawing.Point(10, 133);
+            this.MaxValSlider.Location = new System.Drawing.Point(7, 83);
             this.MaxValSlider.Maximum = 10000;
             this.MaxValSlider.Minimum = 10;
             this.MaxValSlider.Name = "MaxValSlider";
@@ -284,7 +286,7 @@
             // 
             // DelayLengthInt
             // 
-            this.DelayLengthInt.Location = new System.Drawing.Point(164, 91);
+            this.DelayLengthInt.Location = new System.Drawing.Point(171, 140);
             this.DelayLengthInt.Name = "DelayLengthInt";
             this.DelayLengthInt.Size = new System.Drawing.Size(67, 13);
             this.DelayLengthInt.TabIndex = 5;
@@ -301,7 +303,7 @@
             // DelayLabel
             // 
             this.DelayLabel.AutoSize = true;
-            this.DelayLabel.Location = new System.Drawing.Point(7, 66);
+            this.DelayLabel.Location = new System.Drawing.Point(9, 118);
             this.DelayLabel.Name = "DelayLabel";
             this.DelayLabel.Size = new System.Drawing.Size(34, 13);
             this.DelayLabel.TabIndex = 3;
@@ -310,7 +312,7 @@
             // DelaySlider
             // 
             this.DelaySlider.LargeChange = 100;
-            this.DelaySlider.Location = new System.Drawing.Point(7, 82);
+            this.DelaySlider.Location = new System.Drawing.Point(9, 134);
             this.DelaySlider.Maximum = 1000;
             this.DelaySlider.Name = "DelaySlider";
             this.DelaySlider.Size = new System.Drawing.Size(161, 45);
@@ -446,6 +448,19 @@
             this.SortedLabel.TabIndex = 12;
             this.SortedLabel.Text = "Sorted:";
             // 
+            // SoundBox
+            // 
+            this.SoundBox.AutoSize = true;
+            this.SoundBox.Checked = true;
+            this.SoundBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SoundBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SoundBox.Location = new System.Drawing.Point(13, 185);
+            this.SoundBox.Name = "SoundBox";
+            this.SoundBox.Size = new System.Drawing.Size(57, 17);
+            this.SoundBox.TabIndex = 9;
+            this.SoundBox.Text = "Sound";
+            this.SoundBox.UseVisualStyleBackColor = true;
+            // 
             // gui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,6 +535,7 @@
         private System.Windows.Forms.Label ComparisonLabel;
         private System.Windows.Forms.Label SortedBool;
         private System.Windows.Forms.Label SortedLabel;
+        private System.Windows.Forms.CheckBox SoundBox;
     }
 }
 

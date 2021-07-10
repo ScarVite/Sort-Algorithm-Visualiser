@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Sort_Algorithm_Visualiser.algorithms;
@@ -31,7 +32,6 @@ namespace Sort_Algorithm_Visualiser
         {
             this.chart1.Invoke(new Action(() => this.chart1.Series[0].Points.DataBindY(arr)));
             this.SortCounterLabel.Invoke(new Action(() => this.SortCounterLabel.Text = sorts.ToString()));
-            this.TimeElapsedInt.Invoke(new Action(() => this.TimeElapsedInt.Text = Math.Round((watch.Elapsed.TotalMilliseconds / 1000), 2).ToString()));
         }
 
         private async void StartBtn_Click(object sender, EventArgs e)
@@ -42,6 +42,7 @@ namespace Sort_Algorithm_Visualiser
             this.QuickActvBox.Enabled = false;
             watch.Restart();
             watch.Start();
+            Task task = Task.Run(() => updateTime());
             int[] sorted = await sort.startSort();
             this.SortedBool.Text = "true";
             for (int a = 1; a < sorted.Length; a++)
@@ -51,7 +52,7 @@ namespace Sort_Algorithm_Visualiser
             this.AlgorithmBox.Enabled = true;
             this.SettingsBox.Enabled = true;
             this.QuickActvBox.Enabled = true;
-            watch.Stop(); // watch.Elapsed.TotalMilliseconds
+            watch.Stop();
             this.chart1.Series[0].Points.DataBindY(sorted);
 
         }
@@ -61,28 +62,28 @@ namespace Sort_Algorithm_Visualiser
             switch (alg)
             {
                 case "Bogosort":
-                    sort = new Bogosort(arrToSort, this.DelaySlider.Value, this);
+                    sort = new Bogosort(arrToSort, this.DelaySlider.Value, this.SoundBox.Checked, this);
                     break;
                 case "Bubblesort":
-                    sort = new Bubblesort(arrToSort, this.DelaySlider.Value, this);
+                    sort = new Bubblesort(arrToSort, this.DelaySlider.Value, this.SoundBox.Checked, this);
                     break;
                 case "Heapsort":
-                    sort = new Heapsort(arrToSort, this.DelaySlider.Value, this);
+                    sort = new Heapsort(arrToSort, this.DelaySlider.Value, this.SoundBox.Checked, this);
                     break;
                 case "Insertionsort":
-                    sort = new Insertionsort(arrToSort, this.DelaySlider.Value, this);
+                    sort = new Insertionsort(arrToSort, this.DelaySlider.Value, this.SoundBox.Checked, this);
                     break;
                 case "Quicksort":
-                    sort = new Quicksort(arrToSort, qs_activiation, this.DelaySlider.Value, this);
+                    sort = new Quicksort(arrToSort, qs_activiation, this.DelaySlider.Value, this.SoundBox.Checked, this);
                     break;
                 case "Radixsort":
-                    sort = new Radixsort(arrToSort, this.DelaySlider.Value, this);
+                    sort = new Radixsort(arrToSort, this.DelaySlider.Value, this.SoundBox.Checked, this);
                     break;
                 case "Selectionsort":
-                    sort = new Selectionsort(arrToSort, this.DelaySlider.Value, this);
+                    sort = new Selectionsort(arrToSort, this.DelaySlider.Value, this.SoundBox.Checked, this);
                     break;
                 case "Shellsort":
-                    sort = new Shellsort(arrToSort, this.DelaySlider.Value, this);
+                    sort = new Shellsort(arrToSort, this.DelaySlider.Value, this.SoundBox.Checked, this);
                     break;
                 default:
                     throw new Exception("No Algorithm Selected");
@@ -141,6 +142,14 @@ namespace Sort_Algorithm_Visualiser
             this.MaxValInt.Text = bar.Value.ToString();
             ArraySlider_Scroll(this.ArraySlider, null);
             this.SortedBool.Text = "false";
+        }
+
+        private void updateTime()
+        {
+            while (watch.IsRunning)
+            {
+                this.TimeElapsedInt.Invoke(new Action(() => this.TimeElapsedInt.Text = Math.Round((watch.Elapsed.TotalMilliseconds / 1000), 2).ToString()));
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// </summary>
         /// <param name="arr">The Array to sort</param>
         /// <param name="gui">The Instance of the GUI</param>
-        public Shellsort(int[] arr, int del, gui gui) : base(del, gui)
+        public Shellsort(int[] arr, int del, bool sound, gui gui) : base(del, sound, gui)
         {
             if (arr.Length < 5)
             {

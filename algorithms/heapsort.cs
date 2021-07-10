@@ -14,7 +14,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// </summary>
         /// <param name="arr">The Array to sort</param>
         /// <param name="gui">The Instance of the GUI</param>
-        public Heapsort(int[] arr, int del, gui gui) : base(del, gui)
+        public Heapsort(int[] arr, int del, bool sound, gui gui) : base(del, sound, gui)
         {
             if (arr.Length < 5)
             {
@@ -34,7 +34,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
             //rebuild the max-heap for the non sorted keys
             for (int i = toSort.Length-1; i > 0; i--)
             {
-                if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
+                //if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
                 swap(0, i);
                 max_heapyfy(i, 0);
             }
@@ -57,7 +57,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
 
             if(largest != large)
             {
-                if (token.IsCancellationRequested) return; // To Properly Cancel a Sort
+                // if (token.IsCancellationRequested) return; // To Properly Cancel a Sort
                 swap(large, largest); //When the Parent isn't the Largest Node Swap them, so the Paren't now is the Largest
                 max_heapyfy(large, largest); //Do The Same for the next Nodes
             }

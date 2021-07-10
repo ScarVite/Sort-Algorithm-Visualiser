@@ -15,14 +15,16 @@ namespace Sort_Algorithm_Visualiser.algorithms
         protected CancellationToken token;
         protected int[] toSort;
         protected bool sorted = false;
+        protected bool soundEnabled = true;
         protected int totalSorts = 0;
         protected gui mainGui;
         protected int delay = 0;
         private int result = 0;
 
-        protected Sortalgorithm(int del, gui gui)
+        protected Sortalgorithm(int del, bool sound, gui gui)
         {
             delay = del;
+            soundEnabled = sound;
             mainGui = gui;
         }
 
@@ -79,8 +81,14 @@ namespace Sort_Algorithm_Visualiser.algorithms
             int temp = toSort[i];
             toSort[i] = toSort[j];
             toSort[j] = temp;
+            if(soundEnabled) makeSound(i);
             mainGui.update(toSort, totalSorts);
             Thread.Sleep(delay);
+        }
+
+        protected void makeSound(int i)
+        {
+           Console.Beep(toSort[i] +37, 100);
         }
 
         /// <summary>
