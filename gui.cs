@@ -54,7 +54,6 @@ namespace Sort_Algorithm_Visualiser
             this.QuickActvBox.Enabled = true;
             watch.Stop();
             this.chart1.Series[0].Points.DataBindY(sorted);
-
         }
 
         private void SelectAlgorithm()

@@ -8,7 +8,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
 {
     class Heapsort : Sortalgorithm
     {
-
+        private int[] lArr;
         /// <summary>
         /// The Constructor for the Heapsort Algorithm
         /// </summary>
@@ -21,20 +21,21 @@ namespace Sort_Algorithm_Visualiser.algorithms
                 throw new Exception("Array has too few Entries");
             }
             toSort = arr;
+            lArr = arr;
         }
 
         protected override int sort()
         {
             //Build the Initial max-heap (rearranging the array)
-            for(int i = toSort.Length/2-1; i >= 0; i--) 
+            for (int i = toSort.Length / 2 - 1; i >= 0; i--)
             {
                 max_heapyfy(toSort.Length, i);
             }
 
             //rebuild the max-heap for the non sorted keys
-            for (int i = toSort.Length-1; i > 0; i--)
+            for (int i = toSort.Length - 1; i >= 0; i--)
             {
-                //if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
+                if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
                 swap(0, i);
                 max_heapyfy(i, 0);
             }
@@ -46,7 +47,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// </summary>
         /// <param name="length">The Last Index of the Array to heapify</param>
         /// <param name="large">The Largest Key</param>
-        protected void max_heapyfy(int length,int large)
+        protected void max_heapyfy(int length, int large)
         {
             int largest = large;
             int l = 2 * large + 1; // left = 2*i + 1 //Some Formula i found which seems to find the Left Child
@@ -55,11 +56,12 @@ namespace Sort_Algorithm_Visualiser.algorithms
             if (l < length && toSort[l] > toSort[largest]) largest = l; //Check if Left Child Node's key is Larger and if, set it's Index As Largest // And check if it is larger than the length
             if (r < length && toSort[r] > toSort[largest]) largest = r; // The Same for the Right Child Node
 
-            if(largest != large)
+            if (largest != large)
             {
-                // if (token.IsCancellationRequested) return; // To Properly Cancel a Sort
+                if (token.IsCancellationRequested) return; // To Properly Cancel a Sort
                 swap(large, largest); //When the Parent isn't the Largest Node Swap them, so the Paren't now is the Largest
-                max_heapyfy(large, largest); //Do The Same for the next Nodes
+                max_heapyfy(length, largest); //Do The Same for the next Nodes
+
             }
         }
     }
