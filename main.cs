@@ -23,13 +23,5 @@ namespace Sort_Algorithm_Visualiser
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(mainGui = new gui());
         }
-
-        /// <summary>
-        /// Initialises the Sortalgorithms
-        /// </summary>
-        public static void init()
-        {
-
-        }
     }
 }
