@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussions
+    url: https://github.com/ScarVite/Sort-Algorithm-Visualiser/discussions/new
+    about: If it`s a Question that doesn`t fit the Templates, Create a New Discussion instead
+  - name: Help via Discord
+    url: https://discord.gg/sMHbCAt
+    about: If you need to Contact me
