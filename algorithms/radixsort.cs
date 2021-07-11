@@ -15,7 +15,9 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// The Constructor for the Radixsort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        /// <param name="gui">The Instance of the GUI</param>
+        /// <param name="del">The Delay for the Algorithm between each sort</param>
+        /// <param name="sound">Wether Sound should be played</param>
+        /// <param name="gui">The Instance of the GUI</param> 
         public Radixsort(int[] arr, int del, bool sound, gui gui) : base(del, sound, gui)
         {
             if (arr.Length < 5)
@@ -34,7 +36,6 @@ namespace Sort_Algorithm_Visualiser.algorithms
             {
                 split[i] = new int[maxLength];
                 splitArray(i);
-                //Console.WriteLine("[{0}]", string.Join(", ", split[i]));
             }
             //Compare each key of the new array
             for (int i = maxLength-1; i >= 0; i--) // Go through every subarray
@@ -45,6 +46,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
                     int sorts = 0;
                     for (int a = 1; a < toSort.Length; a++) // go thorugh the main array
                     {
+                        totalCompars++; // Inc Comparisons
                         if (split[a-1][i] > split[a][i])
                         {
                             if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
@@ -52,6 +54,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
                             sorts++;
                         }
                     }
+                    totalCompars++; // Inc Comparisons
                     if (sorts == 0) sorted = true;
                 }
             }
@@ -81,9 +84,9 @@ namespace Sort_Algorithm_Visualiser.algorithms
             int max = 0;
             foreach (int value in toSort)
             {
+                totalCompars++; // Inc Comparisons
                 if (value.ToString().Length > max) max = value.ToString().Length;
             }
-            //Console.WriteLine("max: {0}", max);
             return max;
         }
 
@@ -94,9 +97,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         private void splitArray(int index)
         {
             //Select Simmilar to .map (js)
-            //Console.WriteLine("split before: [{0}]", string.Join(", ", split[index]));
             int[] intarr = toSort[index].ToString().Select(digit => int.Parse(digit.ToString())).ToArray();
-            //Console.WriteLine("intarr: [{0}]", string.Join(", ", intarr));
             for (int i = 0; i < maxLength; i++)
             {
                 try
@@ -112,7 +113,6 @@ namespace Sort_Algorithm_Visualiser.algorithms
                 }
 
             }
-            //Console.WriteLine("split after: [{0}]", string.Join(", ", split[index]));
         }
     }
 }

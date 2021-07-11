@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.AlgorithmBox = new System.Windows.Forms.GroupBox();
@@ -67,6 +67,10 @@
             this.ComparisonLabel = new System.Windows.Forms.Label();
             this.SortedBool = new System.Windows.Forms.Label();
             this.SortedLabel = new System.Windows.Forms.Label();
+            this.SpecialBox = new System.Windows.Forms.GroupBox();
+            this.ReverseSortedBox = new System.Windows.Forms.CheckBox();
+            this.SortedBox = new System.Windows.Forms.CheckBox();
+            this.DelayToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.AlgorithmBox.SuspendLayout();
             this.SettingsBox.SuspendLayout();
@@ -74,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MaxValSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArraySlider)).BeginInit();
             this.QuickActvBox.SuspendLayout();
+            this.SpecialBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
@@ -81,12 +86,9 @@
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.DataSource = this.chart1.Titles;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(12, 40);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(917, 480);
@@ -257,8 +259,6 @@
             // SoundBox
             // 
             this.SoundBox.AutoSize = true;
-            this.SoundBox.Checked = true;
-            this.SoundBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SoundBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SoundBox.Location = new System.Drawing.Point(13, 185);
             this.SoundBox.Name = "SoundBox";
@@ -311,15 +311,15 @@
             // 
             // DelaySlider
             // 
-            this.DelaySlider.LargeChange = 100;
+            this.DelaySlider.LargeChange = 10;
             this.DelaySlider.Location = new System.Drawing.Point(9, 134);
             this.DelaySlider.Maximum = 1000;
             this.DelaySlider.Name = "DelaySlider";
             this.DelaySlider.Size = new System.Drawing.Size(161, 45);
-            this.DelaySlider.SmallChange = 10;
             this.DelaySlider.TabIndex = 2;
             this.DelaySlider.Value = 10;
             this.DelaySlider.Scroll += new System.EventHandler(this.DelaySlider_Scroll);
+            this.DelaySlider.MouseHover += new System.EventHandler(this.DelaySlider_MouseHover);
             // 
             // MaxValSlider
             // 
@@ -399,27 +399,27 @@
             this.QuickActvBox.Controls.Add(this.ActvRandBtn);
             this.QuickActvBox.Controls.Add(this.ActvFirstBtn);
             this.QuickActvBox.Controls.Add(this.ActvLastBtn);
-            this.QuickActvBox.Location = new System.Drawing.Point(1061, 241);
+            this.QuickActvBox.Location = new System.Drawing.Point(1056, 334);
             this.QuickActvBox.Name = "QuickActvBox";
-            this.QuickActvBox.Size = new System.Drawing.Size(128, 88);
+            this.QuickActvBox.Size = new System.Drawing.Size(102, 88);
             this.QuickActvBox.TabIndex = 7;
             this.QuickActvBox.TabStop = false;
-            this.QuickActvBox.Text = "QS Activation Method";
+            this.QuickActvBox.Text = "QS Method";
             this.QuickActvBox.Visible = false;
             // 
             // TimeElapsedInt
             // 
             this.TimeElapsedInt.AutoSize = true;
-            this.TimeElapsedInt.Location = new System.Drawing.Point(188, 9);
+            this.TimeElapsedInt.Location = new System.Drawing.Point(201, 9);
             this.TimeElapsedInt.Name = "TimeElapsedInt";
-            this.TimeElapsedInt.Size = new System.Drawing.Size(13, 13);
+            this.TimeElapsedInt.Size = new System.Drawing.Size(18, 13);
             this.TimeElapsedInt.TabIndex = 9;
-            this.TimeElapsedInt.Text = "0";
+            this.TimeElapsedInt.Text = "0s";
             // 
             // TimeElapsedLabel
             // 
             this.TimeElapsedLabel.AutoSize = true;
-            this.TimeElapsedLabel.Location = new System.Drawing.Point(108, 9);
+            this.TimeElapsedLabel.Location = new System.Drawing.Point(121, 9);
             this.TimeElapsedLabel.Name = "TimeElapsedLabel";
             this.TimeElapsedLabel.Size = new System.Drawing.Size(74, 13);
             this.TimeElapsedLabel.TabIndex = 8;
@@ -428,7 +428,7 @@
             // ComparisonInt
             // 
             this.ComparisonInt.AutoSize = true;
-            this.ComparisonInt.Location = new System.Drawing.Point(290, 9);
+            this.ComparisonInt.Location = new System.Drawing.Point(326, 9);
             this.ComparisonInt.Name = "ComparisonInt";
             this.ComparisonInt.Size = new System.Drawing.Size(13, 13);
             this.ComparisonInt.TabIndex = 11;
@@ -437,7 +437,7 @@
             // ComparisonLabel
             // 
             this.ComparisonLabel.AutoSize = true;
-            this.ComparisonLabel.Location = new System.Drawing.Point(223, 9);
+            this.ComparisonLabel.Location = new System.Drawing.Point(259, 9);
             this.ComparisonLabel.Name = "ComparisonLabel";
             this.ComparisonLabel.Size = new System.Drawing.Size(70, 13);
             this.ComparisonLabel.TabIndex = 10;
@@ -461,11 +461,47 @@
             this.SortedLabel.TabIndex = 12;
             this.SortedLabel.Text = "Sorted:";
             // 
+            // SpecialBox
+            // 
+            this.SpecialBox.Controls.Add(this.ReverseSortedBox);
+            this.SpecialBox.Controls.Add(this.SortedBox);
+            this.SpecialBox.Location = new System.Drawing.Point(1056, 240);
+            this.SpecialBox.Name = "SpecialBox";
+            this.SpecialBox.Size = new System.Drawing.Size(102, 88);
+            this.SpecialBox.TabIndex = 11;
+            this.SpecialBox.TabStop = false;
+            this.SpecialBox.Text = "Special Cases";
+            // 
+            // ReverseSortedBox
+            // 
+            this.ReverseSortedBox.AutoSize = true;
+            this.ReverseSortedBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReverseSortedBox.Location = new System.Drawing.Point(6, 42);
+            this.ReverseSortedBox.Name = "ReverseSortedBox";
+            this.ReverseSortedBox.Size = new System.Drawing.Size(95, 17);
+            this.ReverseSortedBox.TabIndex = 11;
+            this.ReverseSortedBox.Text = "Inverse Sorted";
+            this.ReverseSortedBox.UseVisualStyleBackColor = true;
+            this.ReverseSortedBox.CheckedChanged += new System.EventHandler(this.SortedBox_CheckedChanged);
+            // 
+            // SortedBox
+            // 
+            this.SortedBox.AutoSize = true;
+            this.SortedBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SortedBox.Location = new System.Drawing.Point(6, 19);
+            this.SortedBox.Name = "SortedBox";
+            this.SortedBox.Size = new System.Drawing.Size(57, 17);
+            this.SortedBox.TabIndex = 10;
+            this.SortedBox.Text = "Sorted";
+            this.SortedBox.UseVisualStyleBackColor = true;
+            this.SortedBox.CheckedChanged += new System.EventHandler(this.SortedBox_CheckedChanged);
+            // 
             // gui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1207, 621);
+            this.ClientSize = new System.Drawing.Size(1182, 540);
+            this.Controls.Add(this.SpecialBox);
             this.Controls.Add(this.SortedBool);
             this.Controls.Add(this.SortedLabel);
             this.Controls.Add(this.ComparisonInt);
@@ -493,6 +529,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ArraySlider)).EndInit();
             this.QuickActvBox.ResumeLayout(false);
             this.QuickActvBox.PerformLayout();
+            this.SpecialBox.ResumeLayout(false);
+            this.SpecialBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,6 +574,10 @@
         private System.Windows.Forms.Label SortedBool;
         private System.Windows.Forms.Label SortedLabel;
         private System.Windows.Forms.CheckBox SoundBox;
+        private System.Windows.Forms.GroupBox SpecialBox;
+        private System.Windows.Forms.CheckBox ReverseSortedBox;
+        private System.Windows.Forms.CheckBox SortedBox;
+        private System.Windows.Forms.ToolTip DelayToolTip;
     }
 }
 

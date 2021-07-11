@@ -13,7 +13,9 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// The Constructor for the Bubblesort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        /// <param name="gui">The Instance of the GUI</param>
+        /// <param name="del">The Delay for the Algorithm between each sort</param>
+        /// <param name="sound">Wether Sound should be played</param>
+        /// <param name="gui">The Instance of the GUI</param> 
         public Bubblesort(int[] arr, int del, bool sound, gui gui) : base(del, sound, gui)
         {
             if(arr.Length < 5)
@@ -30,13 +32,15 @@ namespace Sort_Algorithm_Visualiser.algorithms
                 int sorts = 0; // Count the Sorts
                 for(int i = 0; i < toSort.Length-1; i++)
                 {
-                    if(toSort[i] > toSort[i+1]) 
+                    totalCompars++; // Inc Comparisons
+                    if (toSort[i] > toSort[i+1]) 
                     {
                         if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
                         swap(i, i + 1); //We always carry the largest key over
                         sorts++;
                     }
                 }
+                totalCompars++; // Inc Comparisons
                 if (sorts == 0) sorted = true; // When we completed without sorting we are done. //Seperate check after running is also run
             }
             return 1;

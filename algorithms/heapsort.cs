@@ -13,7 +13,9 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// The Constructor for the Heapsort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        /// <param name="gui">The Instance of the GUI</param>
+        /// <param name="del">The Delay for the Algorithm between each sort</param>
+        /// <param name="sound">Wether Sound should be played</param>
+        /// <param name="gui">The Instance of the GUI</param> 
         public Heapsort(int[] arr, int del, bool sound, gui gui) : base(del, sound, gui)
         {
             if (arr.Length < 5)
@@ -52,16 +54,17 @@ namespace Sort_Algorithm_Visualiser.algorithms
             int largest = large;
             int l = 2 * large + 1; // left = 2*i + 1 //Some Formula i found which seems to find the Left Child
             int r = 2 * large + 2; // right = 2*i + 2 //The Same but with right Node
-
+            totalCompars++; // Inc Comparisons
             if (l < length && toSort[l] > toSort[largest]) largest = l; //Check if Left Child Node's key is Larger and if, set it's Index As Largest // And check if it is larger than the length
+            totalCompars++; // Inc Comparisons
             if (r < length && toSort[r] > toSort[largest]) largest = r; // The Same for the Right Child Node
 
+            totalCompars++; // Inc Comparisons
             if (largest != large)
             {
                 if (token.IsCancellationRequested) return; // To Properly Cancel a Sort
                 swap(large, largest); //When the Parent isn't the Largest Node Swap them, so the Paren't now is the Largest
                 max_heapyfy(length, largest); //Do The Same for the next Nodes
-
             }
         }
     }

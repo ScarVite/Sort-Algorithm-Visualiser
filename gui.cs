@@ -13,6 +13,7 @@ namespace Sort_Algorithm_Visualiser
         private String alg = "Bogosort";
         private int[] arrToSort;
         private int qs_activiation = 0;
+        private bool startedSort = false;
         private SortHelper helper = new SortHelper();
         private Stopwatch watch = new Stopwatch();
         Sortalgorithm sort;
@@ -24,34 +25,31 @@ namespace Sort_Algorithm_Visualiser
 
         private void gui_Load(object sender, System.EventArgs e)
         {
-            arrToSort = helper.getArray(this.ArraySlider.Value, 0, this.MaxValSlider.Value);
-            this.chart1.Series[0].Points.DataBindY(arrToSort);
+            genArray();
         }
 
-        public void update(int[] arr, int sorts)
+        public void update(int[] arr, int sorts, int totalCompars)
         {
             this.chart1.Invoke(new Action(() => this.chart1.Series[0].Points.DataBindY(arr)));
             this.SortCounterLabel.Invoke(new Action(() => this.SortCounterLabel.Text = sorts.ToString()));
+            this.ComparisonInt.Invoke(new Action(() => this.ComparisonInt.Text = totalCompars.ToString()));
         }
 
         private async void StartBtn_Click(object sender, EventArgs e)
         {
             SelectAlgorithm();
-            this.AlgorithmBox.Enabled = false;
-            this.SettingsBox.Enabled = false;
-            this.QuickActvBox.Enabled = false;
+            changeBox(false);
             watch.Restart();
             watch.Start();
             Task task = Task.Run(() => updateTime());
+            startedSort = true;
             int[] sorted = await sort.startSort();
             this.SortedBool.Text = "true";
             for (int a = 1; a < sorted.Length; a++)
             {
                 if (sorted[a - 1] > sorted[a]) this.SortedBool.Text = "false";
             }
-            this.AlgorithmBox.Enabled = true;
-            this.SettingsBox.Enabled = true;
-            this.QuickActvBox.Enabled = true;
+            changeBox(true);
             watch.Stop();
             this.chart1.Series[0].Points.DataBindY(sorted);
         }
@@ -93,18 +91,19 @@ namespace Sort_Algorithm_Visualiser
         {
             TrackBar bar = sender as TrackBar;
             this.ArrayLengthInt.Text = bar.Value.ToString();
-            arrToSort = helper.getArray(this.ArraySlider.Value, 0, this.MaxValSlider.Value);
-            this.chart1.Series[0].Points.DataBindY(arrToSort);
+            genArray();
             this.SortedBool.Text = "false";
         }
 
         private void ResetBtn_Click(object sender, EventArgs e)
         {
-            sort.killTask();
-            this.AlgorithmBox.Enabled = true;
-            this.SettingsBox.Enabled = true;
-            this.QuickActvBox.Enabled = true;
-            this.SortedBool.Text = "false";
+            if (sort != null)
+            {
+                sort.killTask();
+                changeBox(true);
+                this.SortedBool.Text = "false";
+            }
+
         }
 
         private void RadioBtn_CheckedChanged(object sender, EventArgs e)
@@ -116,8 +115,14 @@ namespace Sort_Algorithm_Visualiser
                 if (btn.Text == "Quicksort") this.QuickActvBox.Visible = true;
                 else this.QuickActvBox.Visible = false;
             }
-            ArraySlider_Scroll(this.ArraySlider, null);
-            this.SortedBool.Text = "false";
+            if (startedSort)
+            {
+                genArray();
+                startedSort = false;
+                this.TimeElapsedInt.Text = "0s";
+                this.SortedBool.Text = "false";
+                this.SortCounterLabel.Text = "0";
+            }
         }
 
         private void QuickAtv_CheckedChanged(object sender, EventArgs e)
@@ -125,7 +130,14 @@ namespace Sort_Algorithm_Visualiser
             RadioButton btn = sender as RadioButton;
             String tx = btn.Text;
             qs_activiation = tx == "First Index" ? 0 : tx == "Last Index" ? 1 : 2;
-            this.SortedBool.Text = "false";
+            if (startedSort)
+            {
+                genArray();
+                startedSort = false;
+                this.SortedBool.Text = "false";
+                this.TimeElapsedInt.Text = "0s";
+                this.SortCounterLabel.Text = "0";
+            }
         }
 
         private void DelaySlider_Scroll(object sender, EventArgs e)
@@ -133,22 +145,59 @@ namespace Sort_Algorithm_Visualiser
             TrackBar bar = sender as TrackBar;
             this.DelayLengthInt.Text = bar.Value.ToString();
             this.SortedBool.Text = "false";
+            if (startedSort)
+            {
+                genArray();
+                startedSort = false;
+            }
         }
 
         private void MaxValSlider_Scroll(object sender, EventArgs e)
         {
             TrackBar bar = sender as TrackBar;
             this.MaxValInt.Text = bar.Value.ToString();
-            ArraySlider_Scroll(this.ArraySlider, null);
+            genArray();
             this.SortedBool.Text = "false";
+        }
+
+        private void SortedBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox box = sender as CheckBox;
+            if (box.Text == "Sorted" && box.Checked) this.ReverseSortedBox.Checked = false;
+            else if (box.Text == "Inverse Sorted" && box.Checked) this.SortedBox.Checked = false;
+            if (box.Checked) this.MaxValSlider.Enabled = false;
+            else this.MaxValSlider.Enabled = true;
+            genArray();
         }
 
         private void updateTime()
         {
             while (watch.IsRunning)
             {
-                this.TimeElapsedInt.Invoke(new Action(() => this.TimeElapsedInt.Text = Math.Round((watch.Elapsed.TotalMilliseconds / 1000), 2).ToString()));
+                this.TimeElapsedInt.Invoke(new Action(() => this.TimeElapsedInt.Text = Math.Round((watch.Elapsed.TotalMilliseconds / 1000), 2).ToString() + "s"));
             }
+        }
+
+        private void changeBox(bool state)
+        {
+            this.AlgorithmBox.Enabled = state;
+            this.SettingsBox.Enabled = state;
+            this.QuickActvBox.Enabled = state;
+            this.SpecialBox.Enabled = state;
+        }
+
+        private void genArray()
+        {
+
+            if (this.SortedBox.Checked) arrToSort = helper.getSortedArray(this.ArraySlider.Value);
+            else if (this.ReverseSortedBox.Checked) arrToSort = helper.getReverseSortedArray(this.ArraySlider.Value);
+            else arrToSort = helper.getRandArray(this.ArraySlider.Value, 0, this.MaxValSlider.Value);
+            this.chart1.Series[0].Points.DataBindY(arrToSort);
+        }
+
+        private void DelaySlider_MouseHover(object sender, EventArgs e)
+        {
+            this.DelayToolTip.Show("This Adds a Delay Between each sort,\n so algorithms which sort less are faster. \n Set this to 0 for an true comparison", this.DelaySlider);
         }
     }
 }

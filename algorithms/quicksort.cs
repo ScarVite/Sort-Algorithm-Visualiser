@@ -16,8 +16,10 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// The Constructor for the Quicksort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        /// <param name="Actv">Activation Method: 1=First; 2=Last; 3=Random</param>
-        /// <param name="gui">The Instance of the GUI</param>
+        /// <param name="Actv">Activation Method: 0=First; 1=Last; 2=Random</param>
+        /// <param name="del">The Delay for the Algorithm between each sort</param>
+        /// <param name="sound">Wether Sound should be played</param>
+        /// <param name="gui">The Instance of the GUI</param> 
         public Quicksort(int[] arr, int Actv, int del, bool sound, gui gui) : base(del, sound, gui)
         {
             if (arr.Length < 5)
@@ -31,7 +33,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         protected override int sort()
         {
             if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
-            return qsort(getPivot(), toSort.Length);
+            return qsort(getPivot(), toSort.Length-1);
         }
 
         /// <summary>
@@ -42,6 +44,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// <returns></returns>
         private int qsort(int start, int end)
         {
+            totalCompars++; // Inc Comparisons
             if (start < end)
             {
                 if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
@@ -62,8 +65,9 @@ namespace Sort_Algorithm_Visualiser.algorithms
         {
             int pivot = toSort[start]; //Depending on Activiation Method
             int swapIndex = start;
-            for (int i = start + 1; i < end; i++)
+            for (int i = start + 1; i <= end; i++)
             {
+                totalCompars++; // Inc Comparisons
                 if (toSort[i] < pivot) //Sort the Index Accrodingly
                 {
                     if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort

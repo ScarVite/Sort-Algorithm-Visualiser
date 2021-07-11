@@ -13,7 +13,9 @@ namespace Sort_Algorithm_Visualiser.algorithms
         /// The Constructor for the Selectionsort Algorithm
         /// </summary>
         /// <param name="arr">The Array to sort</param>
-        /// <param name="gui">The Instance of the GUI</param>
+        /// <param name="del">The Delay for the Algorithm between each sort</param>
+        /// <param name="sound">Wether Sound should be played</param>
+        /// <param name="gui">The Instance of the GUI</param> 
         public Selectionsort(int[] arr, int del, bool sound, gui gui) : base(del, sound, gui)
         {
             if (arr.Length < 5)
@@ -30,9 +32,11 @@ namespace Sort_Algorithm_Visualiser.algorithms
                 int minInd = i; // Set the index for the smallest Value
                 for (int a = i; a < toSort.Length; a++)
                 {
+                    totalCompars++; // Inc Comparisons
                     if (toSort[minInd] > toSort[a]) minInd = a; // Set The new Index if it's smaller
                 }
                 if (token.IsCancellationRequested) return 2; // To Properly Cancel a Sort
+                totalCompars++; // Inc Comparisons
                 if (minInd != i) swap(minInd, i); // Swap if it's not the first index
             }
             return 1;
