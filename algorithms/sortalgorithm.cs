@@ -17,6 +17,7 @@ namespace Sort_Algorithm_Visualiser.algorithms
         protected bool sorted = false;
         protected bool soundEnabled = true;
         protected int totalSorts = 0;
+        protected int totalCompars = 0;
         protected gui mainGui;
         protected int delay = 0;
         private int result = 0;
@@ -40,20 +41,23 @@ namespace Sort_Algorithm_Visualiser.algorithms
             return toSort;
         }
 
+        /// <summary>
+        /// Sets a New Array to Sort without reconstructing
+        /// </summary>
+        /// <param name="arr">The Array to sort</param>
         public void newArray(int[] arr)
         {
             toSort = arr;
         }
-
-
-        /// <returns>Time it Took to Sort the Array</returns>
 
         /// <returns>The Array, either Sorted or Unsorted</returns>
         public int[] getArray()
         {
             return toSort;
         }
-
+        /// <summary>
+        /// Stops The SOrt
+        /// </summary>
         public void killTask()
         {
             tokenSource.Cancel();
@@ -82,13 +86,17 @@ namespace Sort_Algorithm_Visualiser.algorithms
             toSort[i] = toSort[j];
             toSort[j] = temp;
             if(soundEnabled) makeSound(i);
-            mainGui.update(toSort, totalSorts);
+            mainGui.update(toSort, totalSorts, totalCompars);
             Thread.Sleep(delay);
         }
 
+        /// <summary>
+        /// Makes a Beep Sound
+        /// </summary>
+        /// <param name="i">The Index of which Value as a frequenzy the Sound should be made</param>
         protected void makeSound(int i)
         {
-           Console.Beep(toSort[i] +37, 100);
+           Console.Beep(toSort[i] +37, 10);
         }
 
         /// <summary>
