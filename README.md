@@ -20,7 +20,7 @@
 2. Open `Sort-Algorithm-Visualiser.sln` with Visual Studio
 4. If you want to Enabled the Console: <br>
 - Right Click on `Sort-Algorith-Visualizer` in Your Solution Explorer and Select  Properties <br>
-- Change the "Output type" from `Console Application` to `Windows Application`
+- Change the "Output type" from `Windows Application` to `Console Application`
 5. Do Some Coding
 6. If You Did Step 4, Undo it 
 7. Push the Code to Github
