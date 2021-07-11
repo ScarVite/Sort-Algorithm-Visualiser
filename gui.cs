@@ -112,8 +112,8 @@ namespace Sort_Algorithm_Visualiser
             if (btn.Checked)
             {
                 alg = btn.Text;
-                if (btn.Text == "Quicksort") this.QuickActvBox.Visible = true;
-                else this.QuickActvBox.Visible = false;
+                /*if (btn.Text == "Quicksort") this.QuickActvBox.Visible = true; Disabled as only One Activation Method Works Rn.
+                else this.QuickActvBox.Visible = false;*/ 
             }
             if (startedSort)
             {
