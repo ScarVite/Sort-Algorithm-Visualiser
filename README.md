@@ -14,7 +14,7 @@
 
 ## Reporting Bugs
 
-1. Open a Issue [here](https://github.com/ScarVite/Sort-Algorithm-Visualiser/issues/new) 
+1. Open a Issue [here](https://github.com/ScarVite/Sort-Algorithm-Visualiser/issues/new/choose) 
 2. Wait for a Contributor to Respond
 
 ## Contributing
