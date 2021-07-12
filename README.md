@@ -1,7 +1,10 @@
 # Sort-Algorithm-Visualiser
 
 ### A Visualizer for Sorting Algorithms. 
+
 ### Part of my Final Exam (Mündliche Abitur Prüfung).
+
+<img src="https://totally-not.a-sketchy.site/43ZSh6d.png" />
 
 ## How to Run it
 
