@@ -21,7 +21,7 @@
 
 1. Clone the Repository
 2. Open `Sort-Algorithm-Visualiser.sln` with Visual Studio
-4. If you want to Enabled the Console: <br>
+4. If you want to Enable the Console: <br>
 - Right Click on `Sort-Algorith-Visualizer` in Your Solution Explorer and Select  Properties <br>
 - Change the "Output type" from `Windows Application` to `Console Application`
 5. Do Some Coding
