@@ -24,7 +24,7 @@ namespace Sort_Algorithm_Visualiser.utils
             {
                 toSort[i] = rand.Next(min_value, max_value);
             }
-            //Console.WriteLine("Unsorted: [{0}]", string.Join(", ", toSort));
+            Console.WriteLine("Unsorted: [{0}]", string.Join(", ", toSort));
             return toSort;
         }
 
@@ -40,7 +40,7 @@ namespace Sort_Algorithm_Visualiser.utils
             {
                 toSort[i] = i;
             }
-            //Console.WriteLine("Unsorted: [{0}]", string.Join(", ", toSort));
+            Console.WriteLine("Unsorted: [{0}]", string.Join(", ", toSort));
             return toSort;
         }
 
@@ -56,7 +56,7 @@ namespace Sort_Algorithm_Visualiser.utils
             {
                 toSort[i] = length-i;
             }
-            //Console.WriteLine("Unsorted: [{0}]", string.Join(", ", toSort));
+            Console.WriteLine("Unsorted: [{0}]", string.Join(", ", toSort));
             return toSort;
         }
     }
