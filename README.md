@@ -14,14 +14,14 @@
 
 ## Reporting Bugs
 
-1. Open a Issue [here](https://github.com/ScarVite/Sort-Algorithm-Visualiser/issues/new) 
+1. Open a Issue [here](https://github.com/ScarVite/Sort-Algorithm-Visualiser/issues/new/choose) 
 2. Wait for a Contributor to Respond
 
 ## Contributing
 
 1. Clone the Repository
 2. Open `Sort-Algorithm-Visualiser.sln` with Visual Studio
-4. If you want to Enabled the Console: <br>
+4. If you want to Enable the Console: <br>
 - Right Click on `Sort-Algorith-Visualizer` in Your Solution Explorer and Select  Properties <br>
 - Change the "Output type" from `Windows Application` to `Console Application`
 5. Do Some Coding
