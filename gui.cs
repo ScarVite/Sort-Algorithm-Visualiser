@@ -103,6 +103,10 @@ namespace Sort_Algorithm_Visualiser
                 changeBox(true);
                 this.SortedBool.Text = "false";
             }
+            if(!watch.IsRunning)
+            {
+                genArray();
+            }
 
         }
 
