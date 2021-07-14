@@ -10,7 +10,7 @@ namespace Sort_Algorithm_Visualiser
 {
     public partial class gui : Form
     {
-        private String alg = "Bogosort";
+        private String alg = "Bogosort"; // test commit
         private int[] arrToSort;
         private int qs_activiation = 0;
         private bool startedSort = false;
